@@ -15,14 +15,25 @@ Plugin 'tpope/vim-haml'
 Plugin 'mileszs/ack.vim'
 Plugin 'rking/ag.vim'
 Plugin 'mustache/vim-mode'
+Plugin 'tpope/vim-surround'
+
+"Syntax
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'evidens/vim-twig.git'
+Plugin 'aaronj1336/underscore-templates.vim.git'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'evidens/vim-twig.git'
-Plugin 'aaronj1336/underscore-templates.vim.git'
+
+"snippets and autocomplete
+Plugin 'tpope/vim-ragtag'
+Plugin 'firegoby/SASS-Snippets'
+Plugin "MarcWeber/vim-addon-mw-utils"
+Plugin "tomtom/tlib_vim"
+Plugin "garbas/vim-snipmate"
+Plugin "honza/vim-snippets"
+
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 " All of your Plugins must be added before the following line
