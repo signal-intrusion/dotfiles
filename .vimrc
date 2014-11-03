@@ -16,6 +16,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'rking/ag.vim'
 Plugin 'mustache/vim-mode'
 Plugin 'tpope/vim-surround'
+Plugin 'Shutnik/jshint2.vim'
 
 "Syntax
 Plugin 'vim-ruby/vim-ruby'
