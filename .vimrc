@@ -30,10 +30,10 @@ Plugin 'tpope/vim-rails'
 "snippets and autocomplete
 Plugin 'tpope/vim-ragtag'
 Plugin 'firegoby/SASS-Snippets'
-Plugin "MarcWeber/vim-addon-mw-utils"
-Plugin "tomtom/tlib_vim"
-Plugin "garbas/vim-snipmate"
-Plugin "honza/vim-snippets"
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
