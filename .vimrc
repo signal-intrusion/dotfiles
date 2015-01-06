@@ -17,6 +17,7 @@ Plugin 'rking/ag.vim'
 Plugin 'mustache/vim-mode'
 Plugin 'tpope/vim-surround'
 Plugin 'Shutnik/jshint2.vim'
+Plugin 'reedes/vim-pencil'
 
 "Syntax
 Plugin 'vim-ruby/vim-ruby'
@@ -24,7 +25,6 @@ Plugin 'evidens/vim-twig.git'
 Plugin 'aaronj1336/underscore-templates.vim.git'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'pangloss/vim-javascript'
-Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-rails'
 
 "snippets and autocomplete
@@ -32,8 +32,9 @@ Plugin 'tpope/vim-ragtag'
 Plugin 'firegoby/SASS-Snippets'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+Plugin 'garbas/vim-snipmate'
+Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
@@ -52,13 +53,12 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+
 autocmd VimEnter * NERDTree
 
 " ------ colors lines and numbers ------ "
 
 set t_Co=256
-"et background=dark
-"olorscheme twilight
 syntax on
 set lines
 set number
@@ -92,29 +92,41 @@ set backspace=2
 set list listchars=tab:»·,trail:· " detect trailing whitespace
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
-" Cursor
-"let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-"let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-"let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-"let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-
 if $TERM_PROGRAM =~ "iTerm"
   let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
   let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
   set guicursor+=i:blinkwait0
 endif
 
-if $TERM =~ "screen"
- let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
- let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  set guicursor+=i:blinkwait0
 endif
 
 "let g:airline_theme="sol"
 
-"highlight iCursor guifg=white guibg=steelblue
-"set guicursor=n-v-c:block-Cursor
-"set guicursor+=i:ver100-iCursor
-"highlight Cursor guifg=white guibg=red
-"highlight iCursor guifg=white guibg=green
-"au InsertLeave * hi Cursor guibg=red
-"au InsertEnter * hi Cursor guibg=green
+let g:pencil#wrapModeDefault = 'soft'   " or 'hard'
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd,md call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END
+
+" snippets scope filetypes
+let g:snipMate = {}
+let g:snipMate.scope_aliases = {} 
+let g:snipMate.scope_aliases['twig'] = 'twig,html'
+
+" Remap snippets and ycm
+
+
+let g:ycm_key_list_select_completion = ['<C-s>', '<C-Space>']
+let g:ycm_key_list_previous = ['<C-n>']
+
+imap <Tab> <Plug>snipMateNextOrTrigger
+smap <Tab> <Plug>snipMateNextOrTrigger
+
+" jshint
+
+let jshint2_save = 1

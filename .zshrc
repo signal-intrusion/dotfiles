@@ -43,7 +43,7 @@ else
   export EDITOR='mvim'
 fi
 
-export PATH="/Users/plumcakes/.rbenv/shims:/Users/plumcakes/.rbenv/bin:$PATH"
+# export PATH="/Users/plumcakes/.rbenv/shims:/Users/plumcakes/.rbenv/bin:$PATH"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -56,3 +56,6 @@ alias tma='tmux attach -t'
 alias tml='tmux ls'
 alias tmk='tmux kill-session -t'
 alias k='kill -9'
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
